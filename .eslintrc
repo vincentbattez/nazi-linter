@@ -1,0 +1,27 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parserOptions": {
+    "parser": "babel-eslint"
+  },
+  "extends": [
+    "plugin:vue/strongly-recommended",
+    "standard"
+  ],
+  "plugins": [
+    "vue"
+  ],
+  "rules": {
+    "indent": "error",
+    "vue/html-indent": "error",
+    "curly": ["error", "all"],
+    "brace-style": ["error", "1tbs", {
+      "allowSingleLine": false
+    }],
+    "vue/singleline-html-element-content-newline": "off",
+    "vue/component-name-in-template-casing": ["error", "kebab-case"]
+  }
+}
