@@ -1,4 +1,4 @@
-{
+module.exports = {
   "root": true,
 
   "env": {
@@ -13,7 +13,7 @@
 
   "extends": [
     "prettier",
-    "plugin:vue/strongly-recommended",
+    "plugin:vue/strongly-recommended", // vue js linter
     "standard"
   ],
 
@@ -23,6 +23,7 @@
   ],
 
   "rules": {
+    // Eslint rules
     "indent": "error",
     "vue/html-indent": "error",
     "curly": ["error", "all"],
@@ -30,8 +31,9 @@
       "allowSingleLine": false
     }],
     "space-before-function-paren": "off",
+    // Vue eslint rules
     "vue/max-attributes-per-line": ["off", {
-      "singleline": 1,
+      "singleline": 20,
       "multiline": {
          "max": 1,
          "allowFirstLine": false
@@ -79,6 +81,7 @@
       "error",
       "kebab-case"
     ],
+    // use prettier inside eslint (rules are inside .prettierrc)
     "prettier/prettier": ["error"]
   }
 }
