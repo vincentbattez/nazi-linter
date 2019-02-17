@@ -12,9 +12,9 @@ module.exports = {
   },
 
   "extends": [
-    "prettier",
+    "standard", // eslint standard linter
+    "prettier", // prettier linter
     "plugin:vue/strongly-recommended", // vue js linter
-    "standard"
   ],
 
   "plugins": [
@@ -81,6 +81,7 @@ module.exports = {
       "error",
       "kebab-case"
     ],
+    "vue/no-multi-spaces": ["off"],
     // use prettier inside eslint (rules are inside .prettierrc)
     "prettier/prettier": ["error"]
   }

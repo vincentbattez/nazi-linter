@@ -21,13 +21,19 @@ module.exports = {
     'function-url-quotes': 'always',
     'font-weight-notation': 'numeric',
     'comment-whitespace-inside': 'always',
-    'rule-empty-line-before': 'always-multi-line',
+    'rule-empty-line-before': [
+      'always-multi-line',
+      {
+        except: ['first-nested']
+      }
+    ],
     'selector-pseudo-element-colon-notation': 'single',
     'selector-pseudo-class-parentheses-space-inside': 'never',
     'media-feature-range-operator-space-before': 'always',
     'media-feature-range-operator-space-after': 'always',
     'media-feature-parentheses-space-inside': 'never',
     'media-feature-colon-space-before': 'never',
+    'declaration-empty-line-before': 'never',
     'media-feature-colon-space-after': 'always',
     'at-rule-empty-line-before': null,
     'at-rule-no-unknown': null,
