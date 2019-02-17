@@ -4,12 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "npx eslint --ext .js,.vue .",
-    "lint:fix": "npx eslint --ext --fix .js,.vue ."
+    "lint-script": "npx eslint --ext .js,.vue .",
+    "lint-script:fix": "npx eslint --ext .js,.vue . --fix",
+    "lint-style": "stylelint **/*.vue",
+    "lint-style:fix": "npx stylelint **/*.vue --fix",
+    "lint:fixAll": "npm run lint-script:fix && npm run lint-style:fix"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@commitlint/cli": "^7.5.2",
+    "@commitlint/config-angular": "^7.5.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.10.0",
     "eslint-config-prettier": "^4.0.0",
@@ -19,8 +24,9 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
-    "eslint-plugin-vue": "^5.0.0",
+    "eslint-plugin-vue": "^5.2.1",
     "prettier": "^1.16.4",
+    "shared-git-hooks": "^1.2.1",
     "stylelint": "^9.10.1",
     "stylelint-config-prettier": "^4.0.0",
     "stylelint-config-recess-order": "^2.0.1",

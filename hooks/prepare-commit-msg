@@ -1,0 +1,19 @@
+#!/bin/sh
+. sh/config.sh 
+clear
+
+step="prepare-commit-msg"
+msg=`cat $1`
+
+echo $msg | npx commitlint
+if [[ "$?" == 1 ]];
+then
+  message 'fail' $step 'Angular commit message'
+  exit 1
+fi
+
+# SUCCESS MESSAGE
+clear
+message 'success' $step 'Angular commit message'
+
+echo "$msg" > $1

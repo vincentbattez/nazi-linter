@@ -1,0 +1,45 @@
+#!/bin/sh
+. sh/config.sh 
+clear
+
+step="pre-push"
+
+
+
+
+# Style Lint
+message ${infoTxt} '' 'run styleLint...'
+npm run lint-style
+if [[ "$?" == 2 ]];
+then
+  message 'fail' $step 'StyleLint'
+  message "    ${badTxt}- " "" "use${goodTxt} npm run lint-style:fix${badTxt} to fix style problem"
+  message "    ${badTxt}- " "" "OR use${goodTxt} npm run lint:fixAll${badTxt} to fix script and style problem${endColor}"
+  echo
+  exit 1
+fi
+message 'success' $step 'StyleLint'
+
+
+
+
+# ESlint + Prettier:
+message ${infoTxt} '' 'run eslint...'
+npm run lint-script
+if [[ "$?" == 1 ]];
+then
+  message 'fail' $step 'ESlint with Prettier'
+  message "    ${badTxt}- " "" "use${goodTxt} npm run lint-script:fix${badTxt} to fix script problem"
+  message "    ${badTxt}- " "" "OR use${goodTxt} npm run lint:fixAll${badTxt} to fix script and style problem${endColor}"
+  echo
+  exit 1
+fi
+message 'success' $step 'ESlint with Prettier'
+
+
+# SUCCESS MESSAGES
+# clear
+# message 'success' $step 'Jest unit test'
+# message 'success' $step 'ESlint with Prettier'
+# message 'success' $step 'StyleLint'
+# exit 1
